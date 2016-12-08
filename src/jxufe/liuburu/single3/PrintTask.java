@@ -15,16 +15,20 @@ public class PrintTask implements Runnable{
 	/**
 	 * 所有的等待打印的数据
 	 */
-	private List<MyData> myDatas;
+	private MyData myData;
 	
-	public PrintTask(List<MyData> myDatas) {
+	public PrintTask(MyData myData) {
 		super();
-		this.myDatas = myDatas;
+		this.myData = myData;
 	}
 
 	@Override
 	public void run() {
-		
+		try {
+			myData.printDataMethod();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
